@@ -27,7 +27,8 @@ from flask import Flask
 #photos = UploadSet('photos', IMAGES)
 #configure_uploads(app, photos)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://lqtsgjafkliepk:49e24531007157bf0444f07a0c44a60b1df33909a1bb0e87c92f999be6ec84c6@ec2-54-204-45-43.compute-1.amazonaws.com:5432/de85uk970imaqa'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://lqtsgjafkliepk:49e24531007157bf0444f07a0c44a60b1df33909a1bb0e87c92f999be6ec84c6@ec2-54-204-45-43.compute-1.amazonaws.com:5432/de85uk970imaqa'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://aiikciolpsmixq:ee84012abf50fef531398ff50fd3ba5e488026f67d18f3f9e4440b7811492470@ec2-52-70-25-37.compute-1.amazonaws.com:5432/da93j5c7sfof6p'
 
 cur_PATH = 'booklist.db'
 BOOK_CSV_PATH = 'booklist.csv'
