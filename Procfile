@@ -1,0 +1,1 @@
+web: gunicorn all_psy:app –log-file -
