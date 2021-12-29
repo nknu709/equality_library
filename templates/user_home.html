@@ -1,0 +1,25 @@
+<html>
+    <title>User</title>
+    <style>
+        body
+        {
+            background-color:#FFC0CB;
+        }
+        p.normal{font-family:"Microsoft JhengHei";font-size:60px;}
+        p.anormal{font-family:"Microsoft JhengHei";font-size:30px;display:inline;}
+        p.bnormal{font-family:"Microsoft JhengHei";font-size:30px;display:inline}
+        h1 {font-family:"Microsoft JhengHei";font-size:80px;}
+        a:hover {color:#FF00FF;}
+        a:active {color:#0000FF;}
+    </style>
+    <h1>使用者</h1>
+    <body>
+        <div><p class="anormal"><a href="{{ url_for('borrow_peo',account=account,password=password) }}">借書</a></p></div>
+        <div><p class="anormal"><a href="{{ url_for('return_book',account=account,password=password) }}">還書</a></p></div>
+    </body>
+
+    <body>
+        <hr>
+        <div><p class="anormal"><a href="{{ url_for('library') }}">登出</a></p></div>
+    </body>
+</html>

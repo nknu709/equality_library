@@ -1,0 +1,26 @@
+{% macro render_field(field) %}
+<table>
+<tr>
+  <td>{{ field.label }}</td>
+  <td id="t1" tabindex=-1>{{ field(**kwargs)|safe }}</td>
+  <td>{% if field.errors %}
+    <ul class=errors>
+    {% for error in field.errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
+    {% elif field.description %}
+    {% for description in field.description %}
+      <li>{{ description }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  </td>
+</tr>
+</table>
+
+<script>
+window.onload = function(){
+  document.getElementById("t1").focus();
+};
+</script>
+{% endmacro %}

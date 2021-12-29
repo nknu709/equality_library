@@ -1,0 +1,15 @@
+gunicorn
+WTForms
+requests
+Werkzeug
+Flask
+Flask-Admin
+Flask-Cors
+Flask-Login
+Flask-Mail
+Flask-Migrate
+Flask-Script
+Flask-WTF
+app
+pandas
+psycopg2

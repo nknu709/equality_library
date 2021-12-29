@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<title>Manager</title>
+<style >
+	body{
+	background-color: #FFC0CB;
+	text-align: center;
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+    }
+    .normal{
+		font-size:60px;
+	}
+    .anormal{
+		font-size:35px;
+	}
+    h1 {
+		font-size:80px;
+	}
+    a:hover {
+		color:#FF00FF;
+	}
+    a:active {
+		color:#0000FF;
+	}
+	.boxclass{
+	border-radius: 10px;
+	border: medium groove #8C312D;
+	width: 300px;
+	margin: 5px;
+	float: left;
+	text-align: center;
+	}
+	.titleclass{
+		font-size: 50px;
+		font-style: normal;
+		margin-top: 5px;
+		margin-bottom: 5px;
+			}
+	.after-box{
+		clear: left;
+	}
+	#content{
+		text-align: center;
+		transform: translateX(12%);
+	}
+</style>
+
+<body>
+	<h1>管理者</h1>
+	<div id="content">
+	<div class="boxclass">
+		<p class="titleclass">書籍</p>
+       	<div><p class="anormal"><a href="{{ url_for('unreturn',account=account,password=password) }}">借書清單</a></p></div>
+		
+		<div><p class="anormal"><a href="{{ url_for('borrow_peo',account=account,password=password) }}">借書</a></p></div>
+		
+       	<div><p class="anormal"><a href="{{ url_for('return_book',account=account,password=password) }}">還書</a></p></div>
+		
+		<div><p class="anormal"><a href="{{ url_for('history_input',account=account,password=password) }}">歷史紀錄</a></p></div>
+	</div>
+		
+	<div class="boxclass">
+		<p class="titleclass">管理</p>
+     	<div><p class="anormal"><a href="{{ url_for('people_search',account=account,password=password) }}">成員搜尋</a></p></div>
+ 
+        <div><p class="anormal"><a href="{{ url_for('people_choose',account=account,password=password) }}">成員管理</a></p></div>
+		
+		<div><p class="anormal"><a href="{{ url_for('book_choose',account=account,password=password) }}">書目管理</a></p></div>
+
+        <div><p class="anormal"><a href="{{ url_for('manager_change_input',account=account,password=password) }}">帳號管理</a></p></div>
+		
+	</div>
+		
+		
+	<div class="boxclass">
+		<p class="titleclass">教具</p>
+        <div><p class="anormal"><a href="{{ url_for('search_teachaid_input',account=account,password=password) }}">教具搜尋</a></p></div>
+        <div><p class="anormal"><a href="{{ url_for('borrow_teachaid_peo',account=account,password=password) }}">教具借閱</a></p></div>
+        <div><p class="anormal"><a href="{{ url_for('return_teachaid',account=account,password=password) }}">教具歸還</a></p></div>
+        <div><p class="anormal"><a href="{{ url_for('unreturn_teachaid',account=account,password=password) }}">教具借出清單</a></p></div>
+        <div><p class="anormal"><a href="{{ url_for('teachaid_image_search',account=account,password=password) }}">教具圖片上傳</a></p></div>
+	</div>
+	</div>
+	<div class="after-box"></div>
+	
+		<hr>
+		<div><p class="anormal"><a href="{{ url_for('library') }}">登出</a></p></div>
+</body>
+	
+	
+</html>
+
+

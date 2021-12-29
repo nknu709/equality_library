@@ -1,0 +1,21 @@
+{% macro render_field(field) %}
+<tr>
+  <td>{{ field.label }}</td>
+  <td id='myfocus' tabindex=-1 autofocus>{{ field(**kwargs)|safe }}</td>
+  <td>{% if field.errors %}
+    <ul class=errors>
+    {% for error in field.errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
+    {% elif field.description %}
+    {% for description in field.description %}
+      <li>{{ description }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  </td>
+</tr>
+
+{% endmacro %}
+
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>班級Top 5</title>
+    {% for jsfile_name in script_list %}
+        <script src="{{ host }}/{{ jsfile_name }}.js"></script>
+    {% endfor %}
+</head>
+
+<style>
+        .abutton {
+            background-color: #CD5C5C;
+            border: none;
+            color: white;
+            padding: 18px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .bbutton {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 18px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        input[type=text] {
+            width: 300px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 30px;
+            background-color: white;
+            background-image: url('searchicon.png');
+            background-position: 10px 10px; 
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+            text-align:center;
+            font-family:"Microsoft JhengHei";
+        }
+        body
+        {
+            background-color:#FFC0CB;
+        }
+        p.normal{font-family:"Microsoft JhengHei";font-size:60px;}
+        p.anormal{font-family:"Microsoft JhengHei";font-size:30px;display:inline;}
+        p.bnormal{font-family:"Microsoft JhengHei";font-size:30px;display:inline;}
+        h1 {font-family:"Microsoft JhengHei";font-size:80px;}
+        a:hover {color:#FF00FF;}
+        a:active {color:#0000FF;}
+</style>
+
+
+<body>
+  <div align="center">{{ myechart|safe }}</div>
+</body>
+
+</html>

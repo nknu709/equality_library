@@ -1,0 +1,79 @@
+<title>Forget Account</title>
+{% if error %}
+  	<head>
+		<meta charset="utf-8"> 
+		<title>Bootstrap 实例 - 警告框（Alert）插件</title>
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+
+	<div class="alert alert-warning">
+		<a href="#" class="close" data-dismiss="alert">
+			&times;
+		</a>
+		<div><p class="bnormal">{{error}}</p></div>
+	</div>
+	</body>
+{% else %}
+{% endif %}
+{% from "_field.html" import render_field %}
+<style>
+		.button {
+		    background-color: #CD5C5C;
+		    border: none;
+		    color: white;
+		    padding: 20px 30px;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 25px;
+		    margin: 4px 2px;
+		    cursor: pointer;
+		    text-align:center;
+		    display:inline;
+		}
+		input[type=text] {
+		    width: 400px;
+		    box-sizing: border-box;
+		    border: 2px solid #ccc;
+		    border-radius: 4px;
+		    font-size: 30px;
+		    background-color: white;
+		    text-align: center;
+		    background-image: url('searchicon.png');
+		    background-position: 10px 10px; 
+		    background-repeat: no-repeat;
+		    padding: 12px 20px 12px 40px;
+		    -webkit-transition: width 0.4s ease-in-out;
+		    transition: width 0.4s ease-in-out;
+		    text-align:center;
+		    font-family:"Microsoft JhengHei";
+		    display:inline;
+		}
+		body
+	    {
+	        background-color:#FFC0CB;
+	    }
+		p.normal{font-family:"Microsoft JhengHei";font-size:60px;}
+	    p.anormal{font-family:"Microsoft JhengHei";font-size:30px;display:inline;}
+	    p.bnormal{font-family:"Microsoft JhengHei";font-size:30px;display:inline;}
+	    h1 {font-family:"Microsoft JhengHei";font-size:80px;}
+	    a:hover {color:#FF00FF;}
+	    a:active {color:#0000FF;}
+</style>
+
+<head>
+</head>
+
+<body>
+
+<h1>忘記密碼</h1>
+<form method="POST" action="{{ url_for('forget_solution') }}">
+  {{ form.hidden_tag() }}
+  <div><p class="anormal">帳號</p> {{ render_field(form.account) }}<input type="submit" value="Go" class="button"></div>
+</form>
+	<hr>
+	<div><a href="{{ url_for('library') }}"><p class="anormal">首頁</p></a></div>
+</body>

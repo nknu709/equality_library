@@ -1,0 +1,56 @@
+<html>
+    <head>
+      <title>Manager</title>
+      <h1>管理者--書目管理</h1>
+    </head>
+    <style>
+        .abutton {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 18px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 4px 2px;
+            cursor: pointer;
+            display:inline;
+        }
+        .bbutton {
+            background-color: #CD5C5C;
+            border: none;
+            color: white;
+            padding: 18px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 4px 2px;
+            cursor: pointer;
+            display:inline;
+        }
+        body
+        {
+            background-color:#FFC0CB;
+        }
+        p.normal{font-family:"Microsoft JhengHei";font-size:60px;}
+        p.anormal{font-family:"Microsoft JhengHei";font-size:30px;display:inline;}
+        p.bnormal{font-family:"Microsoft JhengHei";font-size:30px;display:inline;}
+        h1 {font-family:"Microsoft JhengHei";font-size:80px;}
+        a:hover {color:#FF00FF;}
+        a:active {color:#0000FF;}
+</style>
+    <body>
+        <button onclick="location.href='{{ url_for('delete_book_search',account=account,password=password) }}'" class="bbutton">書目刪除</button>
+        <button onclick="location.href='{{ url_for('insert_book_input',account=account,password=password) }}'" class="bbutton">書目新增</button>
+        <button onclick="location.href='{{ url_for('all_book',account=account,password=password) }}'" class="bbutton">全部書目</button>
+
+        <button onclick="location.href='{{ url_for('login_successed',account=account, password=password) }}'" class="abutton">回到管理者首頁</button>
+    </body>
+</html>
+
+<body>
+    <hr>
+    <div><p class="anormal"><a href="{{ url_for('library') }}">登出</a></p></div>
+</body>

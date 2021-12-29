@@ -1,0 +1,70 @@
+<style>
+        .abutton {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 18px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .bbutton {
+            background-color: #CD5C5C;
+            border: none;
+            color: white;
+            padding: 18px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        input[type=text] {
+            width: 300px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 30px;
+            background-color: white;
+            background-image: url('searchicon.png');
+            background-position: 10px 10px; 
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+            text-align:center;
+            font-family:"Microsoft JhengHei";
+        }
+        body
+        {
+            background-color:#FFC0CB;
+        }
+        p.normal{font-family:"Microsoft JhengHei";font-size:60px;}
+        p.anormal{font-family:"Microsoft JhengHei";font-size:30px;display:inline;}
+        p.bnormal{font-family:"Microsoft JhengHei";font-size:30px;display:inline;}
+        h1 {font-family:"Microsoft JhengHei";font-size:80px;}
+        a:hover {color:#FF00FF;}
+        a:active {color:#0000FF;}
+</style>
+<html>
+    <head>
+      <title>Manager</title>
+      <h1>管理者--成員管理</h1>
+    </head>
+    <body>
+        <button onclick="location.href='{{ url_for('manager_change_password',account=account,password=password, change_account=change_account) }}'" class="bbutton" >更改密碼</button>
+        <button onclick="location.href='{{ url_for('change_email_input',account=account,password=password,change_account=change_account) }}'" class="bbutton" >更改信箱</button>
+    </body>
+</html>
+
+<button onclick="location.href='{{ url_for('login_successed',account=account, password=password) }}'" class="abutton" >回到{{ back_home }}首頁</button>
+
+<body>
+    <hr>
+    <div><a href="{{ url_for('library') }}"><p class="anormal">登出</p></a></div>
+</body>
+

@@ -1,0 +1,173 @@
+<title>Borrow Teachaid</title>
+<!-- Javascript goes in the document HEAD -->
+{% if error %}
+  <head>
+    <meta charset="utf-8"> 
+    <title>Bootstrap 实例 - 警告框（Alert）插件</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+  <div class="alert alert-warning">
+    <a href="#" class="close" data-dismiss="alert">
+      &times;
+    </a>
+    <div><p class="bnormal">{{error}}</p></div>
+  </div>
+  </body>
+{% else %}
+{% endif %}
+
+<script type="text/javascript">
+function altRows(id){
+  if(document.getElementsByTagName){  
+    
+    var table = document.getElementById(id);  
+    var rows = table.getElementsByTagName("tr"); 
+     
+    for(i = 0; i < rows.length; i++){          
+      if(i % 2 == 0){
+        rows[i].className = "evenrowcolor";
+      }else{
+        rows[i].className = "oddrowcolor";
+      }      
+    }
+  }
+}
+
+window.onload=function(){
+  altRows('alternatecolor');
+}
+</script>
+
+
+<!-- CSS goes in the document HEAD or added to your external stylesheet -->
+<style type="text/css">
+table.altrowstable {
+  font-family: verdana,arial,sans-serif;
+  font-size:35px;
+  color:#333333;
+  border-width: 1px;
+  border-color: #a9c6c9;
+  border-collapse: collapse;
+  font-family:"Microsoft JhengHei";
+}
+table.altrowstable th {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #a9c6c9;
+  font-family:"Microsoft JhengHei";
+}
+table.altrowstable td {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #a9c6c9;
+  font-family:"Microsoft JhengHei";
+}
+.oddrowcolor{
+  background-color:#FFD78C;
+}
+.evenrowcolor{
+  background-color:#FFFFFF;
+}
+</style>
+<style>
+        .abutton {
+            background-color: #CD5C5C;
+            border: none;
+            color: white;
+            padding: 18px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .bbutton {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 18px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        input[type=text] {
+            width: 300px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 30px;
+            background-color: white;
+            background-image: url('searchicon.png');
+            background-position: 10px 10px; 
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+            text-align:center;
+            font-family:"Microsoft JhengHei";
+        }
+        body
+        {
+            background-color:#FFC0CB;
+        }
+        p.normal{font-family:"Microsoft JhengHei";font-size:60px;}
+        p.anormal{font-family:"Microsoft JhengHei";font-size:30px;display:inline;}
+        p.bnormal{font-family:"Microsoft JhengHei";font-size:30px;display:inline;}
+        h1 {font-family:"Microsoft JhengHei";font-size:80px;}
+        a:hover {color:#FF00FF;}
+        a:active {color:#0000FF;}
+</style>
+
+
+<h1>教具借閱</h1>
+{% from "_field.html" import render_field %}
+<form method="POST" action="{{ url_for('borrow_teachaid_solution',account=account,password=password) }}">
+  <p class="anormal"> 成員編碼：{{peo_id}}  身份：{{peo_sta}}  班級：{{peo_class}}  姓名：{{peo_name}}</p>
+  {{ form.hidden_tag() }}
+
+  <div><p class="anormal">教具編碼</p>{{ render_field(form.teachaid_word) }}<input type="submit" value="Go" class="abutton"></div>
+  <div style="display:none">
+    <input name=peo_word type="text" value={{peo_word}} >
+  </div>
+</form>
+
+
+{% if print_bor_teachaid %}
+  <font size="8" face="monospace">借出的書：</font>
+  <table class="altrowstable" id="alternatecolor">
+    <thead>
+    <th>教具編碼</th>
+    <th>教具名</th>
+    <th>借出時間</th>
+    </thead>
+    <tbody>
+      <meta charset="UTF-8">
+      {% for i in print_bor_teachaid %}
+        <tr>
+            <td>{{ i[0] }}</td>
+            <td>{{ i[1] }}</td>
+            <td>{{ i[2] }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+</table>
+{% else %}
+{% endif %}
+
+<button onclick="location.href='{{ url_for('borrow_teachaid_peo',account=account, password=password) }}'" class="bbutton">下一位</button>
+
+<button onclick="location.href='{{ url_for('login_successed',account=account, password=password) }}'" class="bbutton">回到{{ back_home }}首頁</button>
+
+<body>
+	<hr>
+	<div><a href="{{ url_for('library') }}"><p class="anormal">登出</p></a></div>  
+</body>

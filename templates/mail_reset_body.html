@@ -1,0 +1,15 @@
+<h1>更改密碼</h1>
+<style>
+		body
+        {
+            background-color:#FFC0CB;
+        }
+        p.anormal{font-family:"Microsoft JhengHei";font-size:30px;display:inline;}
+        h1 {font-family:"Microsoft JhengHei";font-size:80px;}
+</style>
+<body>
+	<a href="{{ url_for('forget_reset',account=account, token=token, _external=True) }}"><p class="anormal">更改密碼</p></a>
+</body>
+
+
+

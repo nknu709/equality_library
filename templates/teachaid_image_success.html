@@ -1,0 +1,118 @@
+<title>Teachaid Image</title>
+<h1>上傳成功</h1>
+
+<!-- Javascript goes in the document HEAD -->
+<script type="text/javascript">
+function altRows(id){
+  if(document.getElementsByTagName){  
+    
+    var table = document.getElementById(id);  
+    var rows = table.getElementsByTagName("tr"); 
+     
+    for(i = 0; i < rows.length; i++){          
+      if(i % 2 == 0){
+        rows[i].className = "evenrowcolor";
+      }else{
+        rows[i].className = "oddrowcolor";
+      }      
+    }
+  }
+}
+
+window.onload=function(){
+  altRows('alternatecolor');
+}
+</script>
+
+
+<!-- CSS goes in the document HEAD or added to your external stylesheet -->
+<style type="text/css">
+table.altrowstable {
+  font-family: verdana,arial,sans-serif;
+  font-size:35px;
+  color:#333333;
+  border-width: 1px;
+  border-color: #a9c6c9;
+  border-collapse: collapse;
+  font-family:"Microsoft JhengHei";
+}
+table.altrowstable th {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #a9c6c9;
+  font-family:"Microsoft JhengHei";
+}
+table.altrowstable td {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #a9c6c9;
+  font-family:"Microsoft JhengHei";
+}
+.oddrowcolor{
+  background-color:#FFD78C;
+}
+.evenrowcolor{
+  background-color:#FFFFFF;
+}
+</style>
+<style>
+        .abutton {
+            background-color: #CD5C5C;
+            border: none;
+            color: white;
+            padding: 18px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .bbutton {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 18px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        body
+        {
+            background-color:#FFC0CB;
+        }
+        p.normal{font-family:"Microsoft JhengHei";font-size:60px;}
+        p.anormal{font-family:"Microsoft JhengHei";font-size:30px;display:inline;}
+        h1 {font-family:"Microsoft JhengHei";font-size:80px;}
+        a:hover {color:#FF00FF;}
+        a:active {color:#0000FF;}
+</style>
+</form>
+
+  <table class="altrowstable" id="alternatecolor">
+    <thead>
+    <th>教具編碼</th>
+    <th>教具名</th>
+    <th>財產編號</th>
+    <th>圖片</th>
+    </thead>
+    <tbody>
+      <meta charset="UTF-8">
+        <tr>
+            <td>{{ select_tea[0] }}</td>
+            <td>{{ select_tea[1] }}</td>
+            <td>{{ select_tea[2] }}</td>
+            <td>{{ tea_image }}</td>
+        </tr>
+    </tbody>
+  </table>
+<button onclick="location.href='{{ url_for('login_successed',account=account, password=password) }}'"  class="bbutton">回到{{ back_home }}首頁</button>
+<body>
+	<hr>
+	<div><a href="{{ url_for('library') }}"><p class="anormal">登出</p></a></div>
+</body>

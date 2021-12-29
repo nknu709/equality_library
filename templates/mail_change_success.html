@@ -1,0 +1,48 @@
+<h1>信息發送成功！</h1>
+<style>
+    body
+        {
+            background-color:#FFC0CB;
+        }
+    .abutton {
+            background-color: #CD5C5C;
+            border: none;
+            color: white;
+            padding: 18px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+	.bbutton {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 18px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        p.anormal{font-family:"Microsoft JhengHei";font-size:30px;display:inline;}
+        h1 {font-family:"Microsoft JhengHei";font-size:80px;}
+</style>
+<body>
+	<p class="anormal">請去{{ send_mail }}收信確認信箱喔！</p>
+	<p class="anormal">若您的新信箱沒有收到更改成功的信，請按下面重新設定信箱的按鈕再重新設定一次喔！</p>
+	<button onclick="location.href='{{ url_for('change_email_input',account=account, password=password,change_account=change_account) }}'"class="abutton" >重新設定信箱</button>
+</body>
+
+<button onclick="location.href='{{ url_for('login_successed',account=account, password=password) }}'"class="bbutton" >回到{{ back_home }}首頁</button>
+
+<body>
+	<hr>
+	<div><a href="{{ url_for('library') }}"><p class="anormal">登出</p></a></div>
+</body>
+
+
+

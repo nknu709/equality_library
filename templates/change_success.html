@@ -1,0 +1,35 @@
+<title>Change Account</title>
+<style>
+        .bbutton {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 18px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 25px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        body
+        {
+            background-color:#FFC0CB;
+        }
+        p.normal{font-family:"Microsoft JhengHei";font-size:60px;}
+        p.anormal{font-family:"Microsoft JhengHei";font-size:30px;display:inline;}
+        p.bnormal{font-family:"Microsoft JhengHei";font-size:30px;display:inline;}
+        h1 {font-family:"Microsoft JhengHei";font-size:80px;}
+        a:hover {color:#FF00FF;}
+        a:active {color:#0000FF;}
+</style>
+<h1>更改密碼</h1>
+
+<p class="anormal">{{ change_account }}密碼更改成功！</p>
+
+
+<button onclick="location.href='{{ url_for('login_successed',account=account ,password=password ) }}'" class="bbutton">回到{{ back_home }}首頁</button>
+<body>
+	<hr>
+	<div><a href="{{ url_for('library') }}"><p class="anormal">登出</p></a></div>
+</body>

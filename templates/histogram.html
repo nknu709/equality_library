@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <script src="{{ url_for('static', filename='echarts.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vintage.js') }}"></script>
+</head>
+<body>
+    <div id="main" style="width: 600px;height:400px;"></div>
+     <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'), 'vintage');
+        // 指定图表的配置项和数据
+        var book_value = {{ book_value|safe }};
+        var book_key = {{ book_key|safe }};
+        var option = {
+            title: {
+                text: '借出排行榜 Top 5'
+            },
+            tooltip: {},
+            legend: {
+                data:['借出量']
+            },
+            xAxis: {
+                data: book_key
+            },
+            yAxis: {},
+            series: [{
+                name: '借出量',
+                type: 'bar',
+                data: book_value
+            }]
+        };
+
+
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
